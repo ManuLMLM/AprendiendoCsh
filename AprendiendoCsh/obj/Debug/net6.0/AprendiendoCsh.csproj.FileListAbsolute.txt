@@ -1,0 +1,15 @@
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\bin\Debug\net6.0\AprendiendoCsh.exe
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\bin\Debug\net6.0\AprendiendoCsh.deps.json
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\bin\Debug\net6.0\AprendiendoCsh.runtimeconfig.json
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\bin\Debug\net6.0\AprendiendoCsh.dll
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\bin\Debug\net6.0\AprendiendoCsh.pdb
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.csproj.AssemblyReference.cache
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.AssemblyInfoInputs.cache
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.AssemblyInfo.cs
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.csproj.CoreCompileInputs.cache
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.dll
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\refint\AprendiendoCsh.dll
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.pdb
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\AprendiendoCsh.genruntimeconfig.cache
+C:\Users\luis_\OneDrive\Documentos\C#\AprendiendoCsh\AprendiendoCsh\obj\Debug\net6.0\ref\AprendiendoCsh.dll
