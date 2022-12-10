@@ -8,7 +8,7 @@ namespace AprendiendoCsh
     {
         static void Main(string[] arg)
         {
-            Persona persona1 = new Persona("Luis", "López", "Morales", 17);
+            Persona persona1 = new Persona("Luis", "López", "Morales", 23);
             Carro carro1 = new Carro("Rojo",1200,persona1.Nombre,persona1.ApellidoP,
                 persona1.ApellidoM,persona1.Edad);
             persona1.EdadConducir(persona1.Edad);
