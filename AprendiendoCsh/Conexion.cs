@@ -8,9 +8,9 @@ namespace AprendiendoCsh
 {
     internal class Conexion
     {
-        protected string server = "localhost";
-        protected string database = "basevehiculos";
-        protected string user = "root";
-        protected string password = "";
+        protected string server = "LAPTOP-3R7J800J";
+        protected string database = "estudiando";
+        protected string user = "Luis";
+        protected string password = "1234";
     }
 }
