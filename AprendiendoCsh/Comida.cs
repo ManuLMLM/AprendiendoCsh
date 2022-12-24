@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace AprendiendoCsh
 {
-    class Comida
+    public class Comida
     {
         public string Nombre { get; set; }
         public int Precio { get; set; }
         public double Cantidad { get; set; }
         public int id { get; set; }
         public Comida() { }
+        public Comida(string Nombre) { this.Nombre = Nombre; }
         public Comida(string nombre,int precio,double cantidad) 
         {
             this.Nombre= nombre;
