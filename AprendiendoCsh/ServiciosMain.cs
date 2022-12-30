@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Net;
 using AprendiendoCsh.Objetos;
 using System.Linq;
+using AprendiendoCsh.Vista;
 
 namespace AprendiendoCsh
 {
@@ -120,7 +121,11 @@ namespace AprendiendoCsh
             };
             var local = (from d in locales
                          where d.Comidas.Where(c => c.Nombre == "Sopes").Count() > 0
-                         select d
+                         select new VistComida(d.Nombre) 
+                         {
+                             ComidasResu = (from c in d.Comidas 
+                                            select new Comida(c.Nombre,c.Precio) ).ToList()
+                         }
                          ).ToList();
         }
     }
