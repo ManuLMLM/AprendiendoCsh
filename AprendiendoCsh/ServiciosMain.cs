@@ -140,6 +140,17 @@ namespace AprendiendoCsh
             //Forma de poner las funciones directas en un delegado
             Action<string, string> accionv2 = (b, a) => Console.WriteLine(b+" "+a);
             HacerAccion(accionv2);
+
+            //Predicados
+            var listadatos1 = new List<int> { 1, 45, 11, 98, 12 ,5,24,67,43,50,100};
+            var predicado = new Predicate<int>(x => x%2 == 0);
+            var predicadolista1 = listadatos1.FindAll(predicado);
+            Predicate<int> predicadoinvertido = x => !predicado(x);//invertir predicado
+            var predicadolista2 = listadatos1.FindAll(predicadoinvertido);
+            predicadolista1.ForEach(d => Console.WriteLine("Es divisible entre 2: "+d));
+            predicadolista2.ForEach(c => Console.WriteLine("No es divisible entre 2: "+c));
+            comidacara(comidas, x => x.Precio >= 30);
+
         }
         public delegate void Ver(string vari);//Creación de Delegado
         public delegate string OrdenarMayus(string palabra);
@@ -173,6 +184,12 @@ namespace AprendiendoCsh
         public static void HacerAccion(Action<string,string> pala)
         {
             pala("Primera acción, ","Segunda acción");
+        }
+        //Método que usa un predicado con una lista de objetos
+        static void comidacara(List<Comida> comidas, Predicate<Comida> precio)
+        {
+            var Ccaras = comidas.FindAll(precio);
+            Ccaras.ForEach(x => Console.WriteLine(x.Nombre+": "+x.Precio));
         }
     }
 }
