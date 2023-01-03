@@ -11,6 +11,7 @@ using System.Net;
 using AprendiendoCsh.Objetos;
 using System.Linq;
 using AprendiendoCsh.Vista;
+using System.Diagnostics.Contracts;
 
 namespace AprendiendoCsh
 {
@@ -42,23 +43,23 @@ namespace AprendiendoCsh
                 List<Objetos.Post> Posts =
                     JsonSerializer.Deserialize<List<Objetos.Post>>(contenido);
             }
-            Post post = new Post(){userId = 12, title = "Hola Hola", body = "Cuerpo"};
+            Post post = new Post() { userId = 12, title = "Hola Hola", body = "Cuerpo" };
             var data = JsonSerializer.Serialize<Post>(post);
-            HttpContent contenido1 = new StringContent(data,System.Text.Encoding.UTF8, "application/json");
-            var respuesta1 = await cliente.PostAsync(link,contenido1);
+            HttpContent contenido1 = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
+            var respuesta1 = await cliente.PostAsync(link, contenido1);
             if (respuesta1.IsSuccessStatusCode)
             {
                 var resultado = await respuesta1.Content.ReadAsStringAsync();
                 var resultado2 = JsonSerializer.Deserialize<Post>(resultado);
             }
             Comida comida3 = new Comida()
-            { Nombre ="Tacos de carnitas", Precio=35, Cantidad=3 };
+            { Nombre = "Tacos de carnitas", Precio = 35, Cantidad = 3 };
             Objetos.EnviarRespuesta<Comida> ObjetoEnviar = new Objetos.EnviarRespuesta<Comida>();
             var mandarcomida = await ObjetoEnviar.Send(comida3);
 
-            List<int> lista1 = new List<int>() { 1,2,0,9,8,7,4,5,6,15,76,44,19,833};
+            List<int> lista1 = new List<int>() { 1, 2, 0, 9, 8, 7, 4, 5, 6, 15, 76, 44, 19, 833 };
 
-            var numero = lista1.Where(d => d ==19).FirstOrDefault();//Consulta para Buscar x valor en la lista
+            var numero = lista1.Where(d => d == 19).FirstOrDefault();//Consulta para Buscar x valor en la lista
             var numordenados = lista1.OrderBy(d => d);//Consulta para Ordenar los valores
             var numsumatoria = lista1.Sum(d => d);//Consulta que suma los valores de la lista
             var numpromedio = lista1.Average(d => d);//Consulta para promedio
@@ -78,12 +79,12 @@ namespace AprendiendoCsh
                 new Comida(){id=9,Nombre="Gorditas",Precio=30,Cantidad=3}
             };
             //Consulta para ordenar una lista de Objetos
-            var ordenarlistacomida = from d in comidas where d.Precio==30 && d.Cantidad==3 
+            var ordenarlistacomida = from d in comidas where d.Precio == 30 && d.Cantidad == 3
                                      orderby d.Precio select d;
             foreach (var item in ordenarlistacomida)
             {
-                Console.WriteLine(item.id+".- " + " Comida: " + item.Nombre + ". Precio: " + item.Precio
-                    +". Cantidad: "+item.Cantidad);
+                Console.WriteLine(item.id + ".- " + " Comida: " + item.Nombre + ". Precio: " + item.Precio
+                    + ". Cantidad: " + item.Cantidad);
             }
             List<Local> locales = new List<Local>()//Lista de locales con sus listas de comidas
             {
@@ -121,12 +122,57 @@ namespace AprendiendoCsh
             };
             var local = (from d in locales
                          where d.Comidas.Where(c => c.Nombre == "Sopes").Count() > 0
-                         select new VistComida(d.Nombre) 
+                         select new VistComida(d.Nombre)
                          {
-                             ComidasResu = (from c in d.Comidas 
-                                            select new Comida(c.Nombre,c.Precio) ).ToList()
+                             ComidasResu = (from c in d.Comidas
+                                            select new Comida(c.Nombre, c.Precio)).ToList()
                          }
                          ).ToList();
+            //Uso de delegados
+            Ver vista = mensaje1;
+            Mostrarlo(vista);
+            OrdenarMayus LetraM = Mayus;
+            
+            Func<string, int> contarpalabra = Contar;//Forma más práctica de hacer uso de los delegados
+            correrletra(LetraM,contarpalabra);
+            Action<string, string> accion = Accion;//Delegado que solo recibe, no regresa
+            HacerAccion(accion);
+            //Forma de poner las funciones directas en un delegado
+            Action<string, string> accionv2 = (b, a) => Console.WriteLine(b+" "+a);
+            HacerAccion(accionv2);
+        }
+        public delegate void Ver(string vari);//Creación de Delegado
+        public delegate string OrdenarMayus(string palabra);
+
+        public static void Mostrarlo(Ver mensaje)
+        {
+            Console.WriteLine("Método que recibe otro");
+            mensaje("Mensaje 2");
+        }
+        public static void mensaje1(string vari)
+        {
+            Console.WriteLine("Mensaje 1 " + vari);
+        }
+        public static string Mayus(string palabra) 
+        {
+            return palabra.ToUpper();
+        }
+        public static int Contar(string palabra)
+        {
+            return palabra.Count();
+        }
+        public static void correrletra(OrdenarMayus palabra,Func<string,int> palabra2)
+        {
+            Console.WriteLine(palabra("esto no está ordenado"));
+            Console.WriteLine(palabra2("esto no está ordenado"));
+        }
+        public static void Accion(string pala, string pala2)
+        {
+            Console.WriteLine(pala + " " + pala2);
+        }
+        public static void HacerAccion(Action<string,string> pala)
+        {
+            pala("Primera acción, ","Segunda acción");
         }
     }
 }
